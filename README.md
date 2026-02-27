@@ -1,16 +1,13 @@
-# Meu Amor — Tema Vinho / Blood Red ❤️
+# Meu Amor — Final (Vinho/Blood Red) ❤️
 
-Projeto HTML/CSS/JS com:
-- Tema vinho (blood red) + preto
-- Player oficial do Spotify (não precisa de mp3)
+Inclui:
+- Tema vinho/blood red + preto
+- Spotify embed
 - Animação de rosas/corações (sem bloquear cliques)
-- Mensagem secreta (só aparece após clique)
-- Modo noite romântica com fade
-- Galeria com modal (fecha no X, clique fora ou ESC)
+- 2 botões secretos (romântico + 😈)
+- Modo noite com fade
+- Galeria ajustada para fotos em pé + modal (fecha no X, clique fora ou ESC)
 
-## Trocar fotos
-Substitua em `assets/fotos/` mantendo os nomes:
+## Fotos
+Substitua em `assets/fotos/` mantendo:
 - 01.jpeg, 02.jpeg, 03.jpeg, 04.jpeg
-
-## GitHub Pages
-Settings > Pages > Branch main /root

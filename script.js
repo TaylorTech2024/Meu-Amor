@@ -15,7 +15,7 @@ document.getElementById("btnMusic")?.addEventListener("click", () => {
   document.getElementById("musica")?.scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
-// Modo noite (fade suave)
+// Modo noite
 const btnNight = document.getElementById("btnNight");
 btnNight?.addEventListener("click", () => {
   document.body.classList.toggle("night");
@@ -30,7 +30,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// Galeria com modal (isso impede de “ficar preso” na camada escura)
+// Modal da galeria
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const modalClose = document.getElementById("modalClose");
@@ -57,7 +57,7 @@ modalClose?.addEventListener("click", closeModal);
 modal?.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-// Mensagem secreta (aparece só depois do clique)
+// Segredo 1
 const btnSecret = document.getElementById("btnSecret");
 const secretText = document.getElementById("secretText");
 let secretShown = false;
@@ -80,12 +80,27 @@ btnSecret?.addEventListener("click", () => {
     secretShown = true;
     btnSecret.textContent = "🔓 Segredo revelado";
   } else {
-    // segundo clique: troca a frase
     const i = Math.floor(Math.random() * secretMessages.length);
     secretText.textContent = secretMessages[i];
   }
 
   secretText.animate(
+    [{ transform: "translateY(8px)", opacity: 0 }, { transform: "translateY(0)", opacity: 1 }],
+    { duration: 420, easing: "ease-out" }
+  );
+});
+
+// Segredo 2 😈
+const btnSecret2 = document.getElementById("btnSecret2");
+const secretText2 = document.getElementById("secretText2");
+
+btnSecret2?.addEventListener("click", () => {
+  if (!secretText2) return;
+
+  secretText2.textContent = "cuzinho hoje? 😈❤️";
+  secretText2.classList.add("show");
+
+  secretText2.animate(
     [{ transform: "translateY(8px)", opacity: 0 }, { transform: "translateY(0)", opacity: 1 }],
     { duration: 420, easing: "ease-out" }
   );
@@ -111,7 +126,7 @@ btnSurprise?.addEventListener("click", () => {
   );
 });
 
-// Animação de rosas/corações vermelhos (leve, não bloqueia cliques)
+// Rosas/corações flutuando
 const floatLayer = document.querySelector(".float-layer");
 const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
@@ -120,7 +135,6 @@ function spawnFloat(){
 
   const el = document.createElement("div");
   el.className = "float";
-  // mistura rosas e corações
   const options = ["🥀", "❤️", "❤️‍🔥", "🌹"];
   el.textContent = options[Math.floor(Math.random() * options.length)];
 
@@ -135,5 +149,4 @@ function spawnFloat(){
   floatLayer.appendChild(el);
   setTimeout(() => el.remove(), duration + 200);
 }
-
 setInterval(spawnFloat, 520);

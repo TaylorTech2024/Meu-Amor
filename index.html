@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  <!-- Camada de animação (não bloqueia cliques) -->
   <div class="float-layer" aria-hidden="true"></div>
 
   <header class="topbar">
@@ -26,7 +25,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" id="topo">
       <div class="hero-card reveal">
         <p class="badge">Para minha branquela ❤️</p>
@@ -45,7 +43,6 @@
       </div>
     </section>
 
-    <!-- CARTA -->
     <section id="carta" class="section">
       <div class="container">
         <h2 class="reveal">Uma cartinha pra você 💌</h2>
@@ -66,23 +63,27 @@
           <p class="sign"><strong>Herbert ❤️</strong></p>
         </div>
 
-        <!-- Mensagem secreta -->
         <div class="secret-wrap reveal">
           <button id="btnSecret" class="btn btn-primary" type="button">
             🔒 Clique para ver a mensagem secreta
           </button>
           <p id="secretText" class="secret-text" aria-live="polite"></p>
         </div>
+
+        <div class="secret-wrap reveal">
+          <button id="btnSecret2" class="btn btn-ghost" type="button">
+            😈 Outro segredo...
+          </button>
+          <p id="secretText2" class="secret-text" aria-live="polite"></p>
+        </div>
       </div>
     </section>
 
-    <!-- MÚSICA (SPOTIFY) -->
     <section id="musica" class="section">
       <div class="container reveal">
         <h2>Essa música é pra você 🎶</h2>
         <p class="lead">Aperta o play e sente tudo que eu sinto por você.</p>
 
-        <!-- Música escolhida: Perfect — Ed Sheeran -->
         <iframe
           class="spotify"
           src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator"
@@ -94,17 +95,14 @@
           loading="lazy">
         </iframe>
 
-        <p class="tiny">
-          Se o Spotify pedir, é só tocar no play dentro do player ❤️
-        </p>
+        <p class="tiny">Se o Spotify pedir, é só tocar no play dentro do player ❤️</p>
       </div>
     </section>
 
-    <!-- FOTOS -->
     <section id="fotos" class="section">
       <div class="container">
         <h2 class="reveal">Nossas fotos 📸</h2>
-        <p class="lead reveal">Toque em uma foto pra ver maior. (E aperte ESC pra fechar)</p>
+        <p class="lead reveal">Toque em uma foto pra ver maior. (Fechar: X, clique fora ou ESC)</p>
 
         <div class="gallery reveal" id="gallery">
           <img src="assets/fotos/01.jpeg" alt="Nós dois - foto 1" loading="lazy" />
@@ -112,34 +110,30 @@
           <img src="assets/fotos/03.jpeg" alt="Nós dois - foto 3" loading="lazy" />
           <img src="assets/fotos/04.jpeg" alt="Nós dois - foto 4" loading="lazy" />
         </div>
+
+        <p class="tiny">A galeria foi ajustada pra fotos em pé (retrato) ficarem perfeitas. ❤️</p>
       </div>
     </section>
 
-    <!-- FINAL -->
     <section class="section final">
       <div class="container">
         <div class="final-card reveal">
           <h2>Feliz Dia da Mulher ❤️</h2>
           <p>Eu te amo hoje, amanhã e sempre. 🥀</p>
 
-          <button id="btnSurprise" class="btn btn-ghost" type="button">
-            ✨ Mais uma frase
-          </button>
+          <button id="btnSurprise" class="btn btn-ghost" type="button">✨ Mais uma frase</button>
           <p id="surpriseText" class="surprise" aria-live="polite"></p>
 
           <div class="footer-links">
             <a class="btn btn-ghost" href="#topo">Voltar ao topo ⤴️</a>
           </div>
 
-          <p class="tiny tiny2">
-            Feito com carinho por Herbert ❤️
-          </p>
+          <p class="tiny tiny2">Feito com carinho por Herbert ❤️</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Modal da foto (corrige a “camada escura” e tem botão de fechar) -->
   <div class="modal" id="modal" aria-hidden="true">
     <button class="modal-close" id="modalClose" type="button" aria-label="Fechar">✕</button>
     <img id="modalImg" alt="Foto ampliada" />
