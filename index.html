@@ -3,21 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b0000" />
+  <meta name="theme-color" content="#080003" />
   <title>Para Andressa ❤️</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="hearts"></div>
+  <!-- Camada de animação (não bloqueia cliques) -->
+  <div class="float-layer" aria-hidden="true"></div>
 
   <header class="topbar">
-    <div class="brand">❤️ 08/03 — Dia da Mulher</div>
-    <button id="btnMusic" class="btn btn-primary">🎶 Ir pra música</button>
+    <div class="brand">🥀 08/03 — Dia da Mulher</div>
+
+    <div class="top-actions">
+      <button id="btnNight" class="btn btn-ghost" type="button" title="Alternar modo noite">
+        🌙 Modo noite
+      </button>
+      <button id="btnMusic" class="btn btn-primary" type="button" title="Ir até a música">
+        🎶 Música
+      </button>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" id="topo">
       <div class="hero-card reveal">
         <p class="badge">Para minha branquela ❤️</p>
         <h1>Andressa Pereira de Almeida</h1>
@@ -30,58 +40,110 @@
           <a class="btn" href="#carta">Ler a cartinha ✍️</a>
           <a class="btn btn-ghost" href="#fotos">Ver nossas fotos 📸</a>
         </div>
+
+        <p class="tiny">Dica: ativa o <strong>Modo noite</strong> e dá play na música. ❤️</p>
       </div>
     </section>
 
+    <!-- CARTA -->
     <section id="carta" class="section">
       <div class="container">
         <h2 class="reveal">Uma cartinha pra você 💌</h2>
+
         <div class="letter reveal">
           <p>
             Andressa, você é a mulher mais incrível que eu conheço.
-            Seu sorriso ilumina meus dias e seu abraço é o meu lugar seguro.
+            Seu sorriso muda meus dias e seu abraço é o meu lugar seguro.
           </p>
           <p>
             Obrigado por ser quem você é e por caminhar ao meu lado.
             Eu te amo mais do que palavras conseguem explicar.
           </p>
+          <p>
+            Hoje eu só queria te dar esse presente simples, mas cheio de verdade:
+            <strong>você é minha escolha todos os dias.</strong>
+          </p>
           <p class="sign"><strong>Herbert ❤️</strong></p>
+        </div>
+
+        <!-- Mensagem secreta -->
+        <div class="secret-wrap reveal">
+          <button id="btnSecret" class="btn btn-primary" type="button">
+            🔒 Clique para ver a mensagem secreta
+          </button>
+          <p id="secretText" class="secret-text" aria-live="polite"></p>
         </div>
       </div>
     </section>
 
+    <!-- MÚSICA (SPOTIFY) -->
     <section id="musica" class="section">
       <div class="container reveal">
         <h2>Essa música é pra você 🎶</h2>
-        <iframe style="border-radius:16px"
-          src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v"
-          width="100%" height="152" frameborder="0"
-          allow="autoplay; encrypted-media">
+        <p class="lead">Aperta o play e sente tudo que eu sinto por você.</p>
+
+        <!-- Música escolhida: Perfect — Ed Sheeran -->
+        <iframe
+          class="spotify"
+          src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
         </iframe>
+
+        <p class="tiny">
+          Se o Spotify pedir, é só tocar no play dentro do player ❤️
+        </p>
       </div>
     </section>
 
+    <!-- FOTOS -->
     <section id="fotos" class="section">
       <div class="container">
         <h2 class="reveal">Nossas fotos 📸</h2>
-        <div class="gallery reveal">
-          <img src="assets/fotos/01.jpeg">
-          <img src="assets/fotos/02.jpeg">
-          <img src="assets/fotos/03.jpeg">
-          <img src="assets/fotos/04.jpeg">
+        <p class="lead reveal">Toque em uma foto pra ver maior. (E aperte ESC pra fechar)</p>
+
+        <div class="gallery reveal" id="gallery">
+          <img src="assets/fotos/01.jpeg" alt="Nós dois - foto 1" loading="lazy" />
+          <img src="assets/fotos/02.jpeg" alt="Nós dois - foto 2" loading="lazy" />
+          <img src="assets/fotos/03.jpeg" alt="Nós dois - foto 3" loading="lazy" />
+          <img src="assets/fotos/04.jpeg" alt="Nós dois - foto 4" loading="lazy" />
         </div>
       </div>
     </section>
 
+    <!-- FINAL -->
     <section class="section final">
       <div class="container">
         <div class="final-card reveal">
           <h2>Feliz Dia da Mulher ❤️</h2>
-          <p>Eu te amo hoje, amanhã e sempre.</p>
+          <p>Eu te amo hoje, amanhã e sempre. 🥀</p>
+
+          <button id="btnSurprise" class="btn btn-ghost" type="button">
+            ✨ Mais uma frase
+          </button>
+          <p id="surpriseText" class="surprise" aria-live="polite"></p>
+
+          <div class="footer-links">
+            <a class="btn btn-ghost" href="#topo">Voltar ao topo ⤴️</a>
+          </div>
+
+          <p class="tiny tiny2">
+            Feito com carinho por Herbert ❤️
+          </p>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Modal da foto (corrige a “camada escura” e tem botão de fechar) -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Fechar">✕</button>
+    <img id="modalImg" alt="Foto ampliada" />
+  </div>
 
   <script src="script.js"></script>
 </body>
